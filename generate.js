@@ -22,7 +22,7 @@ function Score(id, score) {
 
 var Scores = []; {
     var obj = csv();
-    obj.from.path("./team.csv").to.array(function(data1) {
+    obj.from.path("./test_input/team.csv").to.array(function(data1) {
         //copying the contents of the team.csv file to Student
         for (var index = 1; index < data1.length; index++) {
             Student.push(new Students(data1[index][0], data1[index][1]));
@@ -31,7 +31,7 @@ var Scores = []; {
 
         {
             var obj = csv();
-            obj.from.path("./scores.csv").to.array(function(data) {
+            obj.from.path("./test_input/scores.csv").to.array(function(data) {
                 //copying the contents of the scores.csv file to Scores
                 for (var index = 1; index < data.length; index++) {
                     Scores.push(new Score(data[index][0], data[index][1]));
@@ -42,7 +42,7 @@ var Scores = []; {
                 var completed_teams = [];
                 //creates a csv file to store the output(id_no and respective marks)
 
-                var stream = fs.createWriteStream("teamScores.csv");
+                var stream = fs.createWriteStream("./test_output/teamScores.csv");
                 //exits when the process of writing is done
                 stream.on('finish', function() {
                     console.log("Done.");
