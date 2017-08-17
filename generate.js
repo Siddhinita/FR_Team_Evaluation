@@ -113,6 +113,7 @@ for(var i=0;i<Student.length;i++)
 		}
 		else
 		{
+			//no_team holds the students that are not part of any team
 			var num=0;
 			for(var m=0;m<completed_teams.length;m++)
 			{
