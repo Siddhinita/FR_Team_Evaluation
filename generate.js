@@ -46,15 +46,6 @@ var studentAndScore = []; {
                 first column contains id no.
                 second colum contains score.
                 */
-                /*
-                sorts the students according to their score and team and simultaneously
-                writes the content to the output csv file using a stream object
-                uses @studentAndTeam and @studentAndScore to generate output
-                @completed_team holds the teams which have already been soreted so that there are no double entries
-                @no_team holds the studentAndTeams that are not part of any team
-
-
-                */
 
                 for (var index = 1; index < data.length; index++) {
                     studentAndScore.push(new studentScore(data[index][0], data[index][1]));
@@ -71,6 +62,17 @@ var studentAndScore = []; {
                     console.log("Done.");
                     process.exit();
                 });
+                /*
+                callback function for stream object                
+                sorts the students according to their score and team and simultaneously
+                writes the content to the output csv file using a stream object
+                uses @studentAndTeam and @studentAndScore to generate output
+                @completed_team holds the teams which have already been soreted so that there are no double entries
+                @no_team holds the studentAndTeams that are not part of any team
+
+
+                */
+
                 stream.once("open", function(fd) {
                     /*loop that maps each @studentAndTeam to his team membeer and then maps all members of 
                   the same team to the highest marks achieved by any of them*/
